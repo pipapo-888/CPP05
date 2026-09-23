@@ -10,6 +10,10 @@ Bureaucrat::Bureaucrat() : _name("Default"), _grade(50)
 Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name), _grade(grade)
 {
     std::cout << "Default Constructor Called" << std::endl;
+    if (grade < 1)
+        throw Bureaucrat::GradeTooHighException();
+    else if (grade > 150)
+        throw Bureaucrat::GradeTooLowException();
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat &obj) : _name(obj.name), _grade(obj.grade)
@@ -37,3 +41,12 @@ int Bureaucrat::getGrade()
     return _grade;
 }
 
+static void Bureaucrat::GradeTooHighException()
+{
+
+}
+
+static void Bureaucrat::GradeTooLowException()
+{
+
+}
