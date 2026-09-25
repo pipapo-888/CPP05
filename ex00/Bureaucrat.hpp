@@ -2,6 +2,7 @@
 #define BUREAUCRAT_HPP
 
 #include <string>
+#include <ostream>
 
 class Bureaucrat
 {
@@ -11,16 +12,23 @@ class Bureaucrat
     public:
         Bureaucrat();
         Bureaucrat(const Bureaucrat &obj);
-        void Bureaucrat::operator=(const Bureaucrat &obj);
+        Bureaucrat(std::string name, int grade);
+        void operator=(const Bureaucrat &obj);
         ~Bureaucrat();
         
-        std::string getName();
-        int getGrade();
+        std::string getName() const;
+        int getGrade() const;
 
         static void GradeTooHighException();
         static void GradeTooLowException();
         
 
-}
+        Bureaucrat &operator++();
+        Bureaucrat operator++(int);
+        Bureaucrat &operator--();
+        Bureaucrat operator--(int);
+};
+
+std::ostream &operator<<(std::ostream &out, const Bureaucrat &obj);
 
 #endif

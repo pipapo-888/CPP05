@@ -1,7 +1,7 @@
 NAME = Bureaucat
 
 CXX = c++
-CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -pedantic -MMD -MP
+# CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -pedantic -MMD -MP
 
 SRCS = main.cpp Bureaucrat.cpp
 
@@ -13,5 +13,14 @@ all: $(NAME)
 $(NAME): $(OBJS)
 	$(CXX) $(CXXFLAGS) -o $@ $^
 
-$(NAME): $(OBJS)
-	$(CXX) $(CXXFLAGS) -o $(NAME) $(OBJS)
+-include $(DEPS)
+
+clean:
+	rm -f $(OBJS) $(DEPS)
+
+fclean: clean
+	rm -f $(NAME)
+
+re: fclean all
+
+.PHONY: all clean fclean re
