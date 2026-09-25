@@ -33,7 +33,7 @@ Bureaucrat::~Bureaucrat()
     std::cout << "Destructor Called" << std::endl;
 }
 
-std::string Bureaucrat::getName() const
+const std::string& Bureaucrat::getName() const
 {
     return _name;
 }
