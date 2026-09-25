@@ -1,7 +1,7 @@
-NAME = Bureaucat
+NAME = Bureaucrat
 
 CXX = c++
-# CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -pedantic -MMD -MP
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -pedantic -MMD -MP
 
 SRCS = main.cpp Bureaucrat.cpp
 
