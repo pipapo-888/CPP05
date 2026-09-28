@@ -42,6 +42,15 @@ int Bureaucrat::getGrade() const
 	return _grade;
 }
 
+void Bureaucrat::signForm()
+{
+
+
+	
+}
+
+
+
 Bureaucrat &Bureaucrat::operator++()
 {
 	if (_grade <= 1)

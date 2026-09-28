@@ -20,6 +20,7 @@ public:
 
 	const std::string &getName() const;
 	int getGrade() const;
+	void signForm() const;
 
 	Bureaucrat &operator++();
 	Bureaucrat operator++(int);
