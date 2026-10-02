@@ -1,15 +1,18 @@
 #ifndef FORM_HPP
 #define FORM_HPP
 
+#include <ostream>
+#include <exception>
 #include <string>
-#include "Bureaucrat.hpp"
+
+class Bureaucrat;
 
 class Form
 {
 
 private:
 	const std::string _name;
-	bool _isSinged;
+	bool _isSigned;
 	const int _gradeToSign;
 	const int _gradeToExe;
 

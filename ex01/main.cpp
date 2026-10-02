@@ -1,16 +1,21 @@
 #include <iostream>
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 int main()
 {
 	try
 	{
 		Bureaucrat a("A", 2);
-		std::cout << a;
-		++a;
-		std::cout << a;
-		++a;
-		std::cout << a;
+		Form form1("form1", 10, 3);
+		Form form2("form2", 1, 1);
+		
+		std::cout << a << form1 << form2;
+
+		a.signForm(form1);
+		a.signForm(form2);
+
+		std::cout << a << form1 << form2;
 	}
 	catch (const std::exception &e)
 	{
@@ -18,32 +23,32 @@ int main()
 	}
 	std::cout << "------------\n";
 
-	try
-	{
-		Bureaucrat a("B", 0);
-		std::cout << a;
-	}
-	catch (const std::exception &e)
-	{
-		std::cerr << e.what() << '\n';
-	}
+	// try
+	// {
+	// 	Bureaucrat a("B", 0);
+	// 	std::cout << a;
+	// }
+	// catch (const std::exception &e)
+	// {
+	// 	std::cerr << e.what() << '\n';
+	// }
 
-	std::cout << "------------\n";
-	try
-	{
-		Bureaucrat a("C", 148);
-		std::cout << a;
-		--a;
-		std::cout << a;
-		--a;
-		std::cout << a;
-		--a;
-		std::cout << a;
-	}
-	catch (const std::exception &e)
-	{
-		std::cerr << e.what() << '\n';
-	}
+	// std::cout << "------------\n";
+	// try
+	// {
+	// 	Bureaucrat a("C", 148);
+	// 	std::cout << a;
+	// 	--a;
+	// 	std::cout << a;
+	// 	--a;
+	// 	std::cout << a;
+	// 	--a;
+	// 	std::cout << a;
+	// }
+	// catch (const std::exception &e)
+	// {
+	// 	std::cerr << e.what() << '\n';
+	// }
 
 	return (0);
 }
