@@ -21,7 +21,7 @@ public:
 	AForm(const std::string &name, int GradeToSign, int GradeToExe);
 	AForm(const AForm &obj);
 	AForm &operator=(const AForm &obj);
-	~AForm();
+	virtual ~AForm();
 
 	const std::string &getName() const;
 	bool getIsSigned() const;
@@ -40,6 +40,11 @@ public:
 	{
 	public:
 		const char *what() const throw();
+	};
+
+	class FormNotSignedException : public std::exception{
+		public:
+			const char *what() const throw();
 	};
 };
 

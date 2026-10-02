@@ -23,6 +23,7 @@ public:
 	const std::string &getName() const;
 	int getGrade() const;
 	void signAForm(AForm &obj) const;
+	void executeForm(AForm const &form) const;
 
 	Bureaucrat &operator++();
 	Bureaucrat operator++(int);

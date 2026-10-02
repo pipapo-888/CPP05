@@ -56,6 +56,11 @@ void Bureaucrat::signAForm(AForm &obj) const
 	}
 }
 
+void Bureaucrat::executeForm(AForm const &obj) const
+{
+
+}
+
 Bureaucrat &Bureaucrat::operator++()
 {
 	if (_grade <= 1)
