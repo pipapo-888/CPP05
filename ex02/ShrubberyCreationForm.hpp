@@ -16,6 +16,11 @@ public:
 	ShrubberyCreationForm &operator=(const ShrubberyCreationForm &obj);
 	~ShrubberyCreationForm();
 
+	class outfErrorException : public std::exception
+	{
+	public:
+		const char *what() const throw();
+	};
 	void execute(Bureaucrat const &executor) const;
 };
 

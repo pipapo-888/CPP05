@@ -32,6 +32,11 @@ ShrubberyCreationForm::~ShrubberyCreationForm()
 	std::cout << "ShrubberyCreationForm Destructor Called\n";
 }
 
+const char *ShrubberyCreationForm::outfErrorException::what() const throw()
+{
+	return "Error: Could not open file for writing.";
+}
+
 void ShrubberyCreationForm::execute(Bureaucrat const &executor) const
 {
 	if (this->getIsSigned() == false)
@@ -41,8 +46,7 @@ void ShrubberyCreationForm::execute(Bureaucrat const &executor) const
 
 	std::ofstream outfile((_target + "_shrubbery").c_str());
 	if (!outfile)
-		std::cerr << "Error: Could not open file for writing.\n";
-
+		throw outfErrorException();
 
 	outfile << "                        	 &&\n"
 			<< "                          &&& & &&\n"
@@ -53,15 +57,15 @@ void ShrubberyCreationForm::execute(Bureaucrat const &executor) const
 			<< "                &_\\_&&_\\ |& |&&/&__%_/_& &&\n"
 			<< "              &&   && & &| &| /& & % ()& /&&\n"
 			<< "               ()&_---()&\\&\\|&&-&&--%---()~\n"
-			<< "                   &&     \\||||/\n"
+			<< "                          \\||||/\n"
 			<< "                            ||||\n"
 			<< "                            ||||\n"
 			<< "                            ||||\n"
 			<< "                            ||||\n"
 			<< "                            ||||\n"
 			<< "                           /||||\n"
-			<< "                          //||||\\n"
-			<< "                     , -=-~  .-^- _\n";
+			<< "                          //||||\\\n"
+			<< "                     , -=-~  .-^- _-=\\\n";
 
 	outfile.close();
 }
