@@ -42,7 +42,8 @@ int main()
 		std::cout << RRF.getName() << " " << RRF.getIsSigned() << " " << RRF.getGradeToSign() << " " << RRF.getGradeToExe() << std::endl;
 		b.executeForm(RRF);
 		b.signAForm(RRF);
-		b.executeForm(RRF);
+		for (int i = 0; i < 10; i++)
+			b.executeForm(RRF);
 
 		Bureaucrat lowGradeSign("LowSign", 80);
 		RobotomyRequestForm RRF2("Target2");
