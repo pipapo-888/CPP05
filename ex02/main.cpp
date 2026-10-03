@@ -20,12 +20,19 @@ int main()
 		c.executeForm(SCF);
 		c.signAForm(SCF);
 		c.executeForm(SCF);
+
+		Bureaucrat lowGradeSign("LowSign", 150);
+		ShrubberyCreationForm SCF2("Garden2");
+		lowGradeSign.signAForm(SCF2);
+
+		Bureaucrat lowGradeExe("LowExe", 140);
+		lowGradeExe.executeForm(SCF);
 	}
 	catch (const std::exception &e)
 	{
 		std::cerr << e.what() << '\n';
 	}
-	
+
 	std::cout << "------------\n";
 
 	try
@@ -36,6 +43,13 @@ int main()
 		b.executeForm(RRF);
 		b.signAForm(RRF);
 		b.executeForm(RRF);
+
+		Bureaucrat lowGradeSign("LowSign", 80);
+		RobotomyRequestForm RRF2("Target2");
+		lowGradeSign.signAForm(RRF2);
+
+		Bureaucrat lowGradeExe("LowExe", 50);
+		lowGradeExe.executeForm(RRF);
 	}
 	catch (const std::exception &e)
 	{
@@ -52,6 +66,13 @@ int main()
 		a.executeForm(PPF);
 		a.signAForm(PPF);
 		a.executeForm(PPF);
+
+		Bureaucrat lowGradeSign("LowSign", 30);
+		PresidentialPardonForm PPF2("Criminal2");
+		lowGradeSign.signAForm(PPF2);
+
+		Bureaucrat lowGradeExe("LowExe", 10);
+		lowGradeExe.executeForm(PPF);
 	}
 	catch (const std::exception &e)
 	{
