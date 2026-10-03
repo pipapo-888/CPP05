@@ -1,10 +1,11 @@
-#include <iostream>
 #include <string>
+#include <iostream>
 #include "PresidentialPardonForm.hpp"
+#include "Bureaucrat.hpp"
 
 PresidentialPardonForm::PresidentialPardonForm() : AForm("Def PPForm", 25, 5), _target("Def Target")
 {
-    std::cout << "PPF Default Constructor Called \n";
+    std::cout << "PPF Default Constructor Called\n";
 }
 
 PresidentialPardonForm::PresidentialPardonForm(const std::string &target) :  AForm("Def PPForm", 25, 5), _target(target)
@@ -28,4 +29,13 @@ PresidentialPardonForm &PresidentialPardonForm::operator=(const PresidentialPard
 PresidentialPardonForm::~PresidentialPardonForm()
 {
 	std::cout << "PresidentialPardonForm Destructor Called\n";
+}
+
+void PresidentialPardonForm::execute(Bureaucrat const &executor) const
+{
+	if (this->getIsSigned() == false)
+		throw AForm::FormNotSignedException();
+	if (executor.getGrade() > this->getGradeToExe())
+		throw AForm::GradeTooLowException();
+	std::cout << _target << " has been pardoned by Zaphod Beeblebrox.\n";
 }

@@ -58,7 +58,15 @@ void Bureaucrat::signAForm(AForm &obj) const
 
 void Bureaucrat::executeForm(AForm const &obj) const
 {
-
+	try
+	{
+		obj.execute(*this);
+		std::cout << getName() << " executed " << obj.getName() << std::endl;
+	}
+	catch (const std::exception &e)
+	{
+		std::cout << "CONSIDE ERROR MSG\n";
+	}
 }
 
 Bureaucrat &Bureaucrat::operator++()
