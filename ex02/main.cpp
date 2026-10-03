@@ -1,40 +1,62 @@
 #include <iostream>
+#include <cstdlib>
+#include <ctime>
+#include <string>
 #include "Bureaucrat.hpp"
 #include "AForm.hpp"
 #include "PresidentialPardonForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "ShrubberyCreationForm.hpp"
 
 int main()
 {
-	try{
-		PresidentialPardonForm PPF("Criminal");
-		std::cout << PPF.getName();
+	std::srand(std::time(NULL));
+
+	try
+	{
+		ShrubberyCreationForm SCF("Garden");
+		Bureaucrat c("C", 2);
+		std::cout << SCF.getName() << " " << SCF.getIsSigned() << " " << SCF.getGradeToSign() << " " << SCF.getGradeToExe() << std::endl;
+		c.executeForm(SCF);
+		c.signAForm(SCF);
+		c.executeForm(SCF);
+	}
+	catch (const std::exception &e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+	
+	std::cout << "------------\n";
+
+	try
+	{
+		RobotomyRequestForm RRF("Target");
+		Bureaucrat b("B", 2);
+		std::cout << RRF.getName() << " " << RRF.getIsSigned() << " " << RRF.getGradeToSign() << " " << RRF.getGradeToExe() << std::endl;
+		b.executeForm(RRF);
+		b.signAForm(RRF);
+		b.executeForm(RRF);
 	}
 	catch (const std::exception &e)
 	{
 		std::cerr << e.what() << '\n';
 	}
 
-	// try
-	// {
-	// 	Bureaucrat a("A", 2);
-	// 	AForm form1("form1", 10, 3);
-	// 	AForm form2("form2", 1, 1);
-		
-	// 	std::cout << a << form1 << form2;
+	std::cout << "------------\n";
 
-	// 	a.signAForm(form1);
-	// 	a.signAForm(form2);
-	// 	std::cout << a << form1 << form2;
+	try
+	{
+		PresidentialPardonForm PPF("Criminal");
+		Bureaucrat a("A", 2);
+		std::cout << PPF.getName() << " " << PPF.getIsSigned() << " " << PPF.getGradeToSign() << " " << PPF.getGradeToExe() << std::endl;
+		a.executeForm(PPF);
+		a.signAForm(PPF);
+		a.executeForm(PPF);
+	}
+	catch (const std::exception &e)
+	{
+		std::cerr << e.what() << '\n';
+	}
 
-	// 	++a;
-	// 	a.signAForm(form2);
-	// 	std::cout << a << form1 << form2;
-
-	// }
-	// catch (const std::exception &e)
-	// {
-	// 	std::cerr << e.what() << '\n';
-	// }
-	// std::cout << "------------\n";
 	return (0);
 }

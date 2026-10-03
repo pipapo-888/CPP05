@@ -1,4 +1,5 @@
 #include <iostream>
+#include <fstream>
 #include <string>
 #include "ShrubberyCreationForm.hpp"
 #include "Bureaucrat.hpp"
@@ -38,5 +39,29 @@ void ShrubberyCreationForm::execute(Bureaucrat const &executor) const
 	if (executor.getGrade() > this->getGradeToExe())
 		throw AForm::GradeTooLowException();
 
+	std::ofstream outfile((_target + "_shrubbery").c_str());
+	if (!outfile)
+		std::cerr << "Error: Could not open file for writing.\n";
 
+
+	outfile << "                        	 &&\n"
+			<< "                          &&& & &&\n"
+			<< "                        &&& &&  & &&\n"
+			<< "                    && &\\/&\\|& ()|/ @, &&\n"
+			<< "                    &\\/(/&/&||/& /_/)_&/_&\n"
+			<< "                 &() &\\/&|()|/&\\/ '%\" & ()\n"
+			<< "                &_\\_&&_\\ |& |&&/&__%_/_& &&\n"
+			<< "              &&   && & &| &| /& & % ()& /&&\n"
+			<< "               ()&_---()&\\&\\|&&-&&--%---()~\n"
+			<< "                   &&     \\||||/\n"
+			<< "                            ||||\n"
+			<< "                            ||||\n"
+			<< "                            ||||\n"
+			<< "                            ||||\n"
+			<< "                            ||||\n"
+			<< "                           /||||\n"
+			<< "                          //||||\\n"
+			<< "                     , -=-~  .-^- _\n";
+
+	outfile.close();
 }

@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <cstdlib>
 #include "RobotomyRequestForm.hpp"
 #include "Bureaucrat.hpp"
 
@@ -38,10 +39,9 @@ void RobotomyRequestForm::execute(Bureaucrat const &executor) const
 	if (executor.getGrade() > this->getGradeToExe())
 		throw AForm::GradeTooLowException();
 
-	int rand = 5;
-
-	if (rand % 2 == 0)
-		std::cout << "bzzzzzz... " << _target << " has been robotomized successfully";
+	std::cout << "bzzzzzz... ";
+	if (std::rand() % 2 == 0)
+		std::cout << _target << " has been robotomized successfully\n";
 	else
-		std::cout << "Robotomy Failed...";
+		std::cout << "Robotomy Failed...\n";
 }
