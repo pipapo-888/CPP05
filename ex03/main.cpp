@@ -7,10 +7,26 @@
 #include "PresidentialPardonForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "ShrubberyCreationForm.hpp"
+#include "Intern.hpp"
 
 int main()
 {
 	std::srand(std::time(NULL));
+
+	try
+	{
+		Intern intern;
+		
+		AForm* scform = intern.makeForm("shrubbery creation", "banana");
+
+		std::cout << scform << std::endl;
+	}
+	catch (std::exception &e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+
+	std::cout << "------------\n";
 
 	try
 	{
