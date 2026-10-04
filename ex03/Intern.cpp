@@ -1,6 +1,8 @@
 #include <iostream>
 #include "Intern.hpp"
 #include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
 
 
 Intern::Intern()
@@ -29,13 +31,13 @@ Intern::~Intern()
 AForm *Intern::makeForm(const std::string &formName, const std::string &target)
 {
 	std::string forms[3] = {"shrubbery creation", "robotomy request", "presidential pardon"};
-	AForm* (Intern::*f[])(const std::string&) = {&Intern::makeFormInstanceShrubbery, &Intern::makeFormInstanceShrubbery,&Intern::makeFormInstanceShrubbery};
+	AForm* (Intern::*f[])(const std::string&) = {&Intern::makeFormInstanceShrubbery, &Intern::makeFormInstanceRobotomy, &Intern::makeFormInstancePresidential};
 
 	for (int i = 0; i < 3; ++i)
 	{
 		if (forms[i] == formName)
 		{
-			std::cout << "Intern creates" << formName << " Form\n";
+			std::cout << "Intern creates " << formName << " Form\n";
 			return (this->*f[i])(target);
 		}
 	}
@@ -50,8 +52,17 @@ const char *Intern::NoSuchFormException::what() const throw()
 AForm* Intern::makeFormInstanceShrubbery(const std::string &target)
 {
 	AForm *tmp = new ShrubberyCreationForm(target);
+	return tmp;
+}
 
-	std::cout << "ppppppppppppppp  " << tmp->getName() << std::endl;
+AForm* Intern::makeFormInstanceRobotomy(const std::string &target)
+{
+	AForm *tmp = new RobotomyRequestForm(target);
+	return tmp;
+}
 
+AForm* Intern::makeFormInstancePresidential(const std::string &target)
+{
+	AForm *tmp = new PresidentialPardonForm(target);
 	return tmp;
 }

@@ -6,6 +6,11 @@
 
 class Intern
 {
+private:
+	AForm* makeFormInstanceShrubbery(const std::string &target);
+	AForm* makeFormInstanceRobotomy(const std::string &target);
+	AForm* makeFormInstancePresidential(const std::string &target);
+
 public:
 	Intern();
 	Intern(const Intern &other);
@@ -14,7 +19,6 @@ public:
 
 	AForm *makeForm(const std::string &formName, const std::string &target);
 
-	AForm* makeFormInstanceShrubbery(const std::string &target);
 
 	class NoSuchFormException : public std::exception
 	{

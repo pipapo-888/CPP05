@@ -13,13 +13,14 @@ int main()
 {
 	std::srand(std::time(NULL));
 
+	AForm* scform = NULL;
 	try
 	{
 		Intern intern;
-		
-		AForm* scform = intern.makeForm("shrubbery creation", "banana");
 
-		std::cout << scform << std::endl;
+		scform = intern.makeForm("no exist", "banana");
+
+		std::cout << *scform << std::endl;
 	}
 	catch (std::exception &e)
 	{
@@ -95,6 +96,8 @@ int main()
 	{
 		std::cerr << e.what() << '\n';
 	}
+
+	delete scform;
 
 	return (0);
 }
