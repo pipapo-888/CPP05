@@ -2,6 +2,7 @@
 #define INTERN_HPP
 
 #include <string>
+#include <exception>
 #include "AForm.hpp"
 
 class Intern

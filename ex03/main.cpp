@@ -13,14 +13,22 @@ int main()
 {
 	std::srand(std::time(NULL));
 
-	AForm* scform = NULL;
+	AForm* forms[4] = {NULL, NULL, NULL, NULL};
 	try
 	{
 		Intern intern;
 
-		scform = intern.makeForm("no exist", "banana");
+		forms[0] = intern.makeForm("shrubbery creation", "banana");
+		std::cout << *forms[0] << std::endl;
 
-		std::cout << *scform << std::endl;
+		forms[1] = intern.makeForm("robotomy request", "Bob");
+		std::cout << *forms[1] << std::endl;
+
+		forms[2] = intern.makeForm("presidential pardon", "Criminal");
+		std::cout << *forms[2] << std::endl;
+
+		forms[3] = intern.makeForm("no exist", "banana");
+		std::cout << *forms[3] << std::endl;
 	}
 	catch (std::exception &e)
 	{
@@ -97,7 +105,8 @@ int main()
 		std::cerr << e.what() << '\n';
 	}
 
-	delete scform;
+	for (int i = 0; i < 4; i++)
+		delete forms[i];
 
 	return (0);
 }
