@@ -27,6 +27,14 @@ int main()
 		forms[2] = intern.makeForm("presidential pardon", "Criminal");
 		std::cout << *forms[2] << std::endl;
 
+		Bureaucrat intern50("Intern50", 50);
+		std::cout << intern50 << std::endl;
+		for (int i = 0; i < 3; i++)
+		{
+			intern50.signAForm(*forms[i]);
+			intern50.executeForm(*forms[i]);
+		}
+
 		forms[3] = intern.makeForm("no exist", "banana");
 		std::cout << *forms[3] << std::endl;
 	}
